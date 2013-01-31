@@ -52,7 +52,7 @@ if (isset($_POST['submit']))
 	        $requests++;
 	        echo "Traçando rota para " . $param . "\n</br>\n";
 	        echo '<pre>';
-            passthru ("traceroute " . $param);
+            passthru ("mtr -r " . $param);
 	        echo '</pre>';
 	    }
 
@@ -91,7 +91,7 @@ Sobre | Como participar | Quer ajudar? | FAQ | Contato
 <center>
 <h2>Social Looking Glass</h2>
 
-<form action="<?php echo $_PHP['SELF']; ?>" method="post" >
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" >
 <div><label for="ip">IP: </label><input name='ip' type='text'/> </div>
 <input type="checkbox" name="trace" value="trace" /> Traceroute
 <input type="checkbox" name="ping" value="ping" /> Ping
@@ -120,9 +120,9 @@ Sobre | Como participar | Quer ajudar? | FAQ | Contato
 </tr><tr>
 <?php 
    require_once ('functions.php');
-   $asn_queried = trim(ASN_query($_SERVER[REMOTE_ADDR]));
+   $asn_queried = trim(ASN_query($_SERVER['REMOTE_ADDR']));
    $asn_name_queried = trim(ASN_name_query($asn_queried));
-   echo '<td>' . $_SERVER[REMOTE_ADDR] . '</td>';
+   echo '<td>' . $_SERVER['REMOTE_ADDR'] . '</td>';
    echo '<td>' . $asn_queried . '</td>';
    echo '<td>' . $asn_name_queried . '</td>';
 ?>

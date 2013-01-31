@@ -4,14 +4,22 @@ function ASN_query($ip) {
     $ip_array = explode(".", $ip);
     $reversed_ip = $ip_array[3] . '.' . $ip_array[2] . '.' . $ip_array[1] . '.' . $ip_array[0] . '.origin.asn.cymru.com';
     $output = dns_get_record($reversed_ip);
-    $ASN = explode('|',$output[1][txt]);
-    return $ASN[0];
+    if (count ($output) > 0 )
+    {
+    	$ASN = explode('|',$output[1]['txt']);
+    	return $ASN[0];
+    }
+    return 0;
 }
 
 function ASN_name_query($asn) {
     $output = dns_get_record('AS' . $asn . '.asn.cymru.com');
-    $ASN_name = explode('|',$output[0][txt]);
-    return $ASN_name[4];
+    if (count ($output) > 0 )
+    {
+       $ASN_name = explode('|',$output[0]['txt']);
+       return $ASN_name[4];
+    }
+    return "Sem informação";
 }
 
 
