@@ -1,15 +1,27 @@
 @CHARSET "UTF-8";
 body 
 {
-	background-color:#b0c4de;
+        background-color:#b0c4de;
 }
 
 h3
 {
-	text-align:center;
-	font-family:Arial, Helvetica, sans-serif;
+        text-align:center;
+        font-family:Arial, Helvetica, sans-serif;
 }
 #menu 
 {
-	text-align:center;		
+        text-align:center;
+}
+#adesao
+{
+text-align:center;
+}
+#conteudo
+{
+background-color:#d0e4fe;
+border-style:dotted;
+position:relative;
+left:120px;
+width:80%;
 }
